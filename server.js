@@ -1,5 +1,4 @@
 var express = require("express");
-var request = require("request");
 var app = express();
 app.set("view engine", "ejs");
 var bodyParser = require('body-parser');

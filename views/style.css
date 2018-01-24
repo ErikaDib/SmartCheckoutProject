@@ -3,9 +3,13 @@ html, body {
  padding: 0px;
  border: 0px;
  font-family: 'Miriam Libre', sans-serif;
+/* overflow: hidden;*/
+ background-color:steelblue;
  }
 
-
+#unordered-listdiv li{
+    font-size: 1.5em;
+}
 /*list items css */
 input[type="text"]
 {
@@ -21,7 +25,10 @@ input[type="text"]
    
 }
 #col1{
-    border-radius: 30px;
+
+
+/*    border-radius: 30px;*/
+
     text-align: center;
     text-align: center;
     background-image: url(https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX11089546.jpg);
@@ -29,14 +36,28 @@ input[type="text"]
     
 }
 
-.layer{
+.layer2{
     height: 100%;
-    border-radius: 30px;
+/*    border-radius: 30px;*/
     background: linear-gradient(
-                     rgba(26,178,255, .8), 
+                     rgba(51,51,204, .8), 
                      rgba(26,178,255, .8));
+    
 
 }
+.layer{
+    height: 100%;
+
+
+/*    border-radius: 30px;*/
+    background: linear-gradient(
+                     rgba(26,178,255, .8), 
+                     rgba(51,51,204, .8));
+   
+
+
+}
+
 
 
 
@@ -50,6 +71,10 @@ input[type="text"]
 
 .card-body{
     
+}
+
+form{
+    padding-top: 10%;
 }
 
 /*button css*/
@@ -88,8 +113,9 @@ input[type="text"]
  width: 70%;
  float: left;
  height: 100%;
- background-image: url(images/bread.jpg);
- border-radius: 30px;
+
+ background-image: url(images/groceries.jpg);
+/* border-radius: 30px;*/
 
  }
 
@@ -97,9 +123,10 @@ input[type="text"]
  #col2outer #col2side {
  width: 10%;
  float: right;
- background-color: blueviolet;
+ background-color: rgba(51,51,204, .8);
  height: 100%;
- border-radius: 30px;
+
+/* border-radius: 30px;*/
  }
 
 
@@ -111,7 +138,9 @@ input[type="text"]
 
  /* unordered list CSS*/   
 #unordered-listdiv{
-    height:640px;
+
+  height:610px;
+
 }
 
 /* inner lsit css*/
@@ -119,5 +148,97 @@ input[type="text"]
    
 }
 .container{
-     height: 800px;
+     height: 787px;
 }
+
+/*wheater css*/
+
+.wheater{
+   height: 185px; 
+    
+}
+/*slide show cc*/
+#slideshow {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.slide-wrapper {
+    width: 2912px;
+  -webkit-animation: slide 18s ease infinite;
+}
+
+.slide {
+  float: left;
+  height: 640px;
+  width: 700px;
+}
+
+.slide:nth-child(1) {
+/*  background: #5a92ed;*/
+  background-image: url(https://oneclassblog.com/wp-content/uploads/2017/10/food.jpg);
+}
+
+
+.slide:nth-child(2) {
+/*  background: #037E8C;*/
+  background-image: url(https://www.usnews.com/dims4/USNEWS/307b953/2147483647/thumbnail/970x647/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2Fe6%2F4d%2F24ae69104af8a3325e4ec4323d2b%2F150526-variousfoods-stock.jpg);
+    
+  
+}
+
+.slide:nth-child(3) {
+/*  background: #36BF66;*/
+  background-image: url( https://az616578.vo.msecnd.net/files/2016/08/09/6360630123516822951123741797_Angel+Food-+High+Res-6766.jpg);
+    
+
+}
+
+.slide:nth-child(4) {
+   background-image: url(https://foodtank.com/wp-content/uploads/2017/03/Food-Tank-Keri-Glassman-interview.jpg);
+}
+
+.slide-number {
+  color: #000;
+  text-align: center;
+}
+
+@-webkit-keyframes slide {
+  20% {margin-left: 0px;}
+  30% {margin-left: -728px;}
+  50% {margin-left: -728px;}
+  60% {margin-left: -1456px;}
+  70% {margin-left: -1456px;}
+  80% {margin-left: -2184px;}
+  90% {margin-left: -2184px;}
+}
+/*footer*/
+#footer{
+    text-align: center;
+}
+
+/*media query*/
+@media only screen and (min-width: 320px) and (max-width: 479px){ }
+
+
+    @media only screen and (min-width: 480px) and (max-width: 767px){ }
+
+
+
+    @media only screen and (min-width: 768px) and (max-width: 991px){ }
+
+
+
+@media only screen and (min-width: 992px) and (max-width: 1999px){  }
+
+
+
+
+
+
+
+
+
+
