@@ -7,28 +7,19 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 //To read files
 var fs = require('fs');
-var userinfo = fs.readFileSync('store1.json');
-var infoarray = JSON.parse(userinfo);
+var storeInfo = fs.readFileSync('DummyData/Associates.json'); //return not a javaS object
+var infoarray = JSON.parse(storeInfo);
 console.log(infoarray);
 
 // itemsArray 
 var itemsArray = [];
-
-
-
-
 app.use(express.static('views'));
-
 // To be able to implement the css file
 app.use(express.static(__dirname + '/views'));
-
-
 
 app.get("/", function(req, res){
     res.render("index.ejs",{listOfItems:itemsArray});
 });
-
-
 // adding to the list
 app.post('/add',urlencodedParser,function(req, res)
 {   
@@ -36,7 +27,54 @@ app.post('/add',urlencodedParser,function(req, res)
     if(req.body.item != '') {
         itemsArray.push(req.body.item);
     }
+    console.log("arrayList is  " + itemsArray);
+
     res.redirect('/');
+
+});
+
+// adding to the list
+app.get('/delete/:id',urlencodedParser,function(req, res)
+{      
+    if (req.params.id != '') {
+        console.log("id for the element " +req.params.id );
+        itemsArray.splice(req.params.id, 1);
+        console.log("it gets to here");
+
+    }
+    res.redirect('/');       
+
+});
+
+
+app.get('/checkout',urlencodedParser,function(req, res)
+{ 
+    
+    for(var i = 0; i < itemsArray.length; i++)
+    {
+         if(infoarray.hasOwnProperty(itemsArray[i]))
+         {
+            console.log("item found " + itemsArray[i]);
+         }
+         else
+         {
+            console.log("object not found.Get foodstand");
+         }  
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    console.log("checkout route triggered");
+    res.redirect('/');       
 
 });
 

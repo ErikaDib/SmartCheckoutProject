@@ -33,7 +33,7 @@
                 <% for (var i = 0; i < listOfItems.length; i++){%>
                                     
                     
-                    <li>  <%= listOfItems[i] %></li>            
+                    <li><a href="/delete/<%= i %>"> X </a><%= listOfItems[i] %></li>            
                        
                 
                 <%} %>
@@ -41,7 +41,7 @@
                 </div>   
 
            
-            <button class="btn btn-outline-primary" id="checkout-button">Checkout</button>
+            <button class="btn btn-outline-primary" id= "checkoutButton"><a href="/checkout">Checkout</a></button>
         </div>
     </div>
 

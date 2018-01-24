@@ -22,11 +22,7 @@ input[type="text"]
 }
 #col1{
     border-radius: 30px;
-
-    padding-top: 2%;
     text-align: center;
-    /*background-image: url(http://food.fnr.sndimg.com/content/dam/images/food/fullset/2016/3/30/1/FNM_50-grocery-store-products-chefs-love-collage_s4x3.jpg.rend.hgtvcom.966.725.suffix/1459371291347.jpeg);*/
-
     text-align: center;
     background-image: url(https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX11089546.jpg);
     position: relative;
@@ -35,9 +31,10 @@ input[type="text"]
 
 .layer{
     height: 100%;
+    border-radius: 30px;
     background: linear-gradient(
-                     rgba(20,50,20, .5), 
-                     rgba(20,20,20, .5));
+                     rgba(26,178,255, .8), 
+                     rgba(26,178,255, .8));
 
 }
 
@@ -54,9 +51,6 @@ input[type="text"]
 .card-body{
     
 }
-
-
-
 
 /*button css*/
 .btn{
@@ -93,6 +87,10 @@ input[type="text"]
  #col2outer #col2mid {
  width: 70%;
  float: left;
+ height: 100%;
+ background-image: url(images/bread.jpg);
+ border-radius: 30px;
+
  }
 
 
@@ -101,7 +99,10 @@ input[type="text"]
  float: right;
  background-color: blueviolet;
  height: 100%;
+ border-radius: 30px;
  }
+
+
  #container #footer {
  float: left;
  width: 100%;
@@ -110,7 +111,7 @@ input[type="text"]
 
  /* unordered list CSS*/   
 #unordered-listdiv{
-    height:750px;
+    height:640px;
 }
 
 /* inner lsit css*/
@@ -120,8 +121,3 @@ input[type="text"]
 .container{
      height: 800px;
 }
-
-
-
-
-
