@@ -7,20 +7,37 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 //To read files
 var fs = require('fs');
-var userinfo = fs.readFileSync('userInfo.json');
+var userinfo = fs.readFileSync('store1.json');
 var infoarray = JSON.parse(userinfo);
 console.log(infoarray);
+
+// itemsArray 
+var itemsArray = [];
+
+
 
 
 app.use(express.static('views'));
 
 // To be able to implement the css file
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/views'));
 
 
 
 app.get("/", function(req, res){
-   // res.render("search");
+    res.render("index.ejs",{listOfItems:itemsArray});
+});
+
+
+// adding to the list
+app.post('/add',urlencodedParser,function(req, res)
+{   
+    // accessing data using the name attribute
+    if(req.body.item != '') {
+        itemsArray.push(req.body.item);
+    }
+    res.redirect('/');
+
 });
 
 

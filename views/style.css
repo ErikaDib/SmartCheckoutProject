@@ -22,6 +22,11 @@ input[type="text"]
 }
 #col1{
     border-radius: 30px;
+
+    padding-top: 2%;
+    text-align: center;
+    /*background-image: url(http://food.fnr.sndimg.com/content/dam/images/food/fullset/2016/3/30/1/FNM_50-grocery-store-products-chefs-love-collage_s4x3.jpg.rend.hgtvcom.966.725.suffix/1459371291347.jpeg);*/
+
     text-align: center;
     background-image: url(https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX11089546.jpg);
     position: relative;
@@ -29,13 +34,16 @@ input[type="text"]
 }
 
 .layer{
-  
-    border-radius: 30px;
+    height: 100%;
     background: linear-gradient(
-                     rgba(26, 178, 255, .8), 
-                     rgba(26, 178, 255, .8));
+                     rgba(20,50,20, .5), 
+                     rgba(20,20,20, .5));
 
 }
+
+
+
+
 #budget-input{
   
 }
@@ -46,6 +54,7 @@ input[type="text"]
 .card-body{
     
 }
+
 
 
 
@@ -87,6 +96,7 @@ input[type="text"]
  height: 100%;
  background-image: url(images/bread.jpg);
  border-radius: 30px;
+
  }
 
 
@@ -120,31 +130,3 @@ input[type="text"]
 
 
 
-
-/*
-#middle-container{
-   background-color: aqua; 
-}
-
-#left-container{
-   background-color: red; 
-}
-#right-container{
-   background-color: yellow; 
-}
-.col {
-    float: left;
-    padding: 10px;
-    
-}
-.row:after {
-  
-    display: table;
-    clear: both;
-    height: 100%;
-}
-.container{
- width: 870px;
- margin: 0 0 0 20px;  top right bottom left 
- padding: 0;
-}*/

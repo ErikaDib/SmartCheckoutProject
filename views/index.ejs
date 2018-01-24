@@ -12,32 +12,43 @@
     <title>Smart Checkout</title>
 </head>
 <body>
-    
-    
     <div id="container">
 
-   
- <div id="col2outer">
-     <div id="col1" >
-         <div class="layer">
-         <h3>Budget</h3>
-         <input id="budget-input "type="text">
-        
-         <h3>Items</h3>
-         <input id="items-input "type="text">
-         <button class="btn btn-outline-dark btn-lg" id="add-button">Add</button>
-         <div id="unordered-listdiv">
-         <ul>
-           <li>Pizza</li>
-         </ul>
+
+     <div id="col2outer">
+         <div id="col1" >
+             <div class="layer">
+                <form action="/add" method = "post">
+                     <h3>Budget</h3>
+                     <!-- Budget Input -->
+                     <input name = "budget" id="budget-input "type="text">
+                     <!-- Items Input -->
+                     <h3>Items</h3>
+                     <input name = "item" id="items-input "type="text">
+                     <button class="btn btn-outline-primary" id="add-button">Add</button>
+                </form>
+
+                <div id="unordered-listdiv">
+                <ul>
+                <% for (var i = 0; i < listOfItems.length; i++){%>
+                                    
+                    
+                    <li>  <%= listOfItems[i] %></li>            
+                       
+                
+                <%} %>
+                </ul>
+                </div>   
+
+           
+            <button class="btn btn-outline-primary" id="checkout-button">Checkout</button>
         </div>
-         <button class="btn btn-outline-dark btn-lg" id="checkout-button">Checkout</button>
-         </div>
-   </div>
-     
-<!--     mid-->
+    </div>
+
+    <!--     mid-->
     <div id="col2mid">
       <h1>Smart Checkout</h1>
+
         
     <div id="inner-lists" class="container"> 
     <div id="inner-listrow"class="row">
@@ -105,37 +116,38 @@
     </div>      
    </div>
   </div>
+
+                    
 </div>
-        
-        
-        
-        
+</div>
+
+
+
+
 <!--     extras   -->
-    </div>
- <div id="col2side">
-     <p>extras</p>
-     <p>Ab quid voluptate a senserit illustriora ab cupidatat ab multos voluptatibus 
-         offendit culpa nostrud aut irure ab quamquam. Quis doctrina mentitum do aliqua 
-         laboris vidisse, consequat nam mentitum de eu nulla officia doctrina id aut 
-         irure concursionibus, occaecat fore anim an tamen, id ingeniis distinguantur, 
-         fugiat exquisitaque ullamco cillum incurreret. Mentitum aliqua deserunt 
-         incididunt non excepteur quae magna an varias. Probant illum </p>
-     </div>
-     </div>
-        
-        
-        
- <div id="footer">
-     
+</div>
+<div id="col2side">
+ <p>extras</p>
+ <p>Ab quid voluptate a senserit illustriora ab cupidatat ab multos voluptatibus 
+     offendit culpa nostrud aut irure ab quamquam. Quis doctrina mentitum do aliqua 
+     laboris vidisse, consequat nam mentitum de eu nulla officia doctrina id aut 
+     irure concursionibus, occaecat fore anim an tamen, id ingeniis distinguantur, 
+     fugiat exquisitaque ullamco cillum incurreret. Mentitum aliqua deserunt 
+     incididunt non excepteur quae magna an varias. Probant illum </p>
+ </div>
+</div>
+
+
+
+<div id="footer">
+
  <p>Copyright © 2018 </p>
- </div>
- </div>
+</div>
  
 
-    
-    
-    
-      
+
+
 <!--<script src="../app.js"></script>-->
 </body>
 </html>
+
