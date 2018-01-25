@@ -1,4 +1,5 @@
 var express = require("express");
+var weather = require('weather-js');
 var app = express();
 app.set("view engine", "ejs");
 var bodyParser = require('body-parser');
@@ -7,7 +8,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 //To read files
 var fs = require('fs');
 
-// walmart items 
+// walmart items
 var storeInfo = fs.readFileSync('DummyData/walmart.json'); //return not a javaS object
 var infoarray = JSON.parse(storeInfo);
 
@@ -21,7 +22,7 @@ var coscoInfo = fs.readFileSync('DummyData/cosco.json'); //return not a javaS ob
 var coscoArray = JSON.parse(amazonInfo);
 
 
-
+var weatherData = "";
 
 
 
@@ -45,11 +46,11 @@ app.use(express.static('views'));
 app.use(express.static(__dirname + '/views'));
 
 app.get("/", function(req, res){
-    res.render("index.ejs",{listOfItems:itemsArray,Walmart:walmatItems,Amazon:amazonArray,Cosco:coscoArray});
+    res.render("index.ejs",{listOfItems:itemsArray,Walmart:walmatItems,Amazon:amazonArray,Cosco:coscoArray,weatherData:weatherData});
 });
 // adding to the list
 app.post('/add',urlencodedParser,function(req, res)
-{   
+{
     // accessing data using the name attribute
     if(req.body.item != '') {
         itemsArray.push(req.body.item);
@@ -62,20 +63,20 @@ app.post('/add',urlencodedParser,function(req, res)
 
 // adding to the list
 app.get('/delete/:id',urlencodedParser,function(req, res)
-{      
+{
     if (req.params.id != '') {
         console.log("id for the element " +req.params.id );
         itemsArray.splice(req.params.id, 1);
         console.log("it gets to here");
 
     }
-    res.redirect('/');       
+    res.redirect('/');
 
 });
 
 
 app.get('/checkout',urlencodedParser,function(req, res)
-{ 
+{
     // walmart
     console.log("checkOut triggered");
     for(var i = 0; i < itemsArray.length; i++)
@@ -83,7 +84,7 @@ app.get('/checkout',urlencodedParser,function(req, res)
          if(infoarray.hasOwnProperty(itemsArray[i]))
          {
             console.log("item found " + itemsArray[i]);
-            walmatItems.push(itemsArray[i]);            
+            walmatItems.push(itemsArray[i]);
          }
          else
          {
@@ -97,7 +98,7 @@ app.get('/checkout',urlencodedParser,function(req, res)
          if(infoarray.hasOwnProperty(itemsArray[i]))
          {
             console.log("item found " + itemsArray[i]);
-            amazonArray.push(itemsArray[i]);            
+            amazonArray.push(itemsArray[i]);
          }
          else
          {
@@ -111,7 +112,7 @@ app.get('/checkout',urlencodedParser,function(req, res)
          if(infoarray.hasOwnProperty(itemsArray[i]))
          {
             console.log("item found " + itemsArray[i]);
-            coscoArray.push(itemsArray[i]);            
+            coscoArray.push(itemsArray[i]);
          }
          else
          {
@@ -121,10 +122,23 @@ app.get('/checkout',urlencodedParser,function(req, res)
     }
 
 
-    
-    res.redirect('/');       
-  
 
+    res.redirect('/');
+
+
+});
+
+// Juan's Part (WEATHER SECTION) ++++++++
+weather.find({search: 'Bronx, NY', degreeType: 'F'}, function(err, result) {
+  if(err) console.log(err);
+
+  weatherData = {
+      location:result[0]["location"]["name"],
+      temp: result[0]["current"]["temperature"],
+      feels: result[0]["current"]["feelslike"],
+      image: result[0]["current"]["imageUrl"],
+      weekDay: result[0]["current"]["day"]
+  };
 });
 
 
