@@ -169,14 +169,16 @@
 
 <div id="col2side">
 
-  <!-- THE WEATHER SECTION  GIMMe the fucking WEATHER!! -->  
- <div class="wheater">
-    <%= weatherData["location"]  %>
-    <%= weatherData["temp"]  %>
-    <%= weatherData["feels"]  %>
-    <%= weatherData["weekDay"]  %>
-    <img src="<%= weatherData["image"] %>"/>
-</div>
+  <!-- THE WEATHER SECTION  GIMMe the fucking WEATHER!! -->
+    <div class="wheater">
+        <h2 id="weatherTitle"><%= weatherData["weekDay"]  %>'s Weather Forecast</h2>
+        <div id="weatherBox">
+            <div id="temper"><%= weatherData["temp"]  %>F</div>
+            <img id="weatherImg" src="<%= weatherData["image"] %>"/>
+        </div>
+        <h2 id="location"><%= weatherData["location"]  %></h2>
+        <h2 id="feels">Feels Like: <%= weatherData["feels"]  %></h2>
+    </div>
 
 <!--carousel-->
 <div id="slideshow">

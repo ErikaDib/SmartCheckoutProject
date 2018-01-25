@@ -6,6 +6,9 @@ html, body {
 /* overflow: hidden;*/
 /* background-image: url(images/groceries.jpg);*/
  }
+ul {
+  list-style-type: none;
+}
 
 #unordered-listdiv li{
     font-size: 1.5em;
@@ -168,8 +171,31 @@ form{
 /*wheater css*/
 
 .wheater{
-   height: 185px; 
-    
+   height: 20%;
+   padding: 5px;
+}
+#temper{
+    position: relative;
+    top: 5px;
+    margin-left: 5px;
+    font-weight: bold;
+    color: white;
+    font-size: 2.5vw;
+    width: 20%;
+    /* border: 3px solid black; */
+    float: left;
+}
+#weatherTitle{
+    font-weight: bold;
+    color: white;
+    font-size: 1vw;
+}
+#weatherImg{
+    position: relative;
+    left: 20px;
+    width: 50%;
+    float: left;
+    /* border: 1px solid black; */
 }
 /*slide show cc*/
 #slideshow {
@@ -385,9 +411,6 @@ form{
         width: 20rem;
     }
 
-    
-    
-    
 
 }
 
