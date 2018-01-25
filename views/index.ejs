@@ -33,8 +33,8 @@
                 <% for (var i = 0; i < listOfItems.length; i++){%>
                                     
                     
-                    <li><a href="/delete/<%= i %>"> X </a><%= listOfItems[i] %></li>            
-                       
+                    <li><a href="/delete/<%= i %>"> X </a><%= listOfItems[i] %></li> 
+                        
                 
                 <%} %>
                 </ul>
@@ -57,21 +57,27 @@
         
 
         
-     <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Walmart_logo.svg/2000px-Walmart_logo.svg.png" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">milk</li>
-    <li class="list-group-item">Dcookies</li>
-    <li class="list-group-item">rice</li>
-  </ul>
-  <div class="card-body">
-<p>price</p>
-  </div>
-</div>   
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Walmart_logo.svg/2000px-Walmart_logo.svg.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+
+        <ul class="list-group list-group-flush">
+          <!-- walmart Div For loop to populate -->
+          <% for (var i = 0; i < Walmart.length; i++){%>
+                                 
+                    
+            <li class="list-group-item" ><%= Walmart[i] %></li>            
+                            
+                
+          <%} %>          
+        </ul>
+        <div class="card-body">
+          <p>price</p>
+        </div>
+      </div>   
         
         
         
@@ -85,16 +91,23 @@
     <h5 class="card-title">Card title</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">milk</li>
-    <li class="list-group-item">Dcookies</li>
-    <li class="list-group-item">rice</li>
-  </ul>
+
+    <ul class="list-group list-group-flush">
+          <!-- walmart Div For loop to populate -->
+           <% for (var i = 0; i < Amazon.length; i++){%>
+                                 
+                  
+            <li class="list-group-item" ><%= Amazon[i] %></li>            
+                            
+                
+            <%} %>          
+        </ul>
+
   <div class="card-body">
     <p>price</p>
   </div>
-</div>      
-    </div>
+  </div>      
+  </div>
         
         
         
@@ -106,11 +119,21 @@
     <h5 class="card-title">Card title</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">milk</li>
-    <li class="list-group-item">Dcookies</li>
-    <li class="list-group-item">rice</li>
-  </ul>
+      <ul class="list-group list-group-flush">
+          <!-- walmart Div For loop to populate -->
+           <% for (var i = 0; i < Cosco.length; i++){%>
+                                 
+                  
+            <li class="list-group-item" ><%= Cosco[i] %></li>            
+                            
+                
+            <%} %>          
+        </ul>
+
+
+
+
+
   <div class="card-body">
     <p>price</p>
     </div>
