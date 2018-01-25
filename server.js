@@ -6,16 +6,42 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 //To read files
 var fs = require('fs');
-var storeInfo = fs.readFileSync('DummyData/Associates.json'); //return not a javaS object
-var infoarray = JSON.parse(storeInfo);
-console.log(infoarray);
 
-// itemsArray 
+// walmart items 
+var storeInfo = fs.readFileSync('DummyData/walmart.json'); //return not a javaS object
+var infoarray = JSON.parse(storeInfo);
+
+// amazon items
+var amazonInfo = fs.readFileSync('DummyData/amazon.json'); //return not a javaS object
+var amazonArray = JSON.parse(amazonInfo);
+
+
+var coscoInfo = fs.readFileSync('DummyData/cosco.json'); //return not a javaS object
+var coscoArray = JSON.parse(coscoInfo);
+
+
+
+// itemsArray added from the user form
 var itemsArray = [];
 
-//walmart array so it populate the the div of the stores
- var walmartArray = [];
 
+
+//walmart Array of Item when to populate the walmart div
+var walmatItems = [];
+var walmartItemsValue = [];
+var walmartTotalPrice = 0;
+
+
+//amazon Array of Item when to populate the amazon div
+var amazonItems = [];
+var amazontItemsValue = [];
+var amazonTotalPrice = 0;
+
+
+//cosco Array of Item when to populate the cosco div
+var coscoItems = [];
+var coscoItemsValue = [];
+var coscoTotalPrice = 0;
 
 
 
@@ -24,7 +50,13 @@ app.use(express.static('views'));
 app.use(express.static(__dirname + '/views'));
 
 app.get("/", function(req, res){
-    res.render("index.ejs",{listOfItems:itemsArray,WalmartData:walmartArray});
+
+    res.render("index.ejs",
+    {listOfItems:itemsArray,
+        Walmart:walmatItems,WalmartPrices:walmartItemsValue,WalmartTotal:walmartTotalPrice,
+        Amazon:amazonItems,AmazonPrices:amazontItemsValue,AmazonTotal:amazonTotalPrice,
+        Cosco:coscoItems,CoscoPrices:coscoItemsValue,CoscoTotal:coscoTotalPrice });
+
 });
 // adding to the list
 app.post('/add',urlencodedParser,function(req, res)
@@ -55,29 +87,63 @@ app.get('/delete/:id',urlencodedParser,function(req, res)
 
 app.get('/checkout',urlencodedParser,function(req, res)
 { 
-    
+    // walmart
+    console.log("checkOut triggered");
     for(var i = 0; i < itemsArray.length; i++)
     {
          if(infoarray.hasOwnProperty(itemsArray[i]))
          {
             walmartArray.push(itemsArray[i]);
             console.log("item found " + itemsArray[i]);
+            walmatItems.push(itemsArray[i]);
+            walmartItemsValue.push(infoarray[itemsArray[i]]);
+            walmartTotalPrice = walmartTotalPrice + parseFloat(infoarray[itemsArray[i]]); 
+
          }
          else
          {
             console.log("object not found.Get foodstand");
-         }  
+         }
 
     }
+    // amazon
+    for(var i = 0; i < itemsArray.length; i++)
+    {
+         if(infoarray.hasOwnProperty(itemsArray[i]))
+         {
+            console.log("item found " + itemsArray[i]);
+            amazonItems.push(itemsArray[i]);
+            amazontItemsValue.push(amazonArray[itemsArray[i]]);
+            amazonTotalPrice = amazonTotalPrice + parseFloat(amazonArray[itemsArray[i]]);            
+         }
+         else
+         {
+            console.log("object not found.Get foodstand");
+         }
 
+    }
+    // cosco
+     for(var i = 0; i < itemsArray.length; i++)
+    {
+         if(infoarray.hasOwnProperty(itemsArray[i]))
+         {
+            console.log("item found " + itemsArray[i]);
+            coscoItems.push(itemsArray[i]);
+            coscoItemsValue.push(coscoArray[itemsArray[i]]);
+            coscoTotalPrice = coscoTotalPrice + parseFloat(coscoArray[itemsArray[i]]);
 
-    console.log("checkout route triggered");
+          // console.log(coscoArray[itemsArray[i]]);         
+         }
+         else
+         {
+            console.log("object not found.Get foodstand");
+         }
+    }
+
     res.redirect('/');       
+  
 
 });
-
-
-
 
 
 //open a listening port and create a callback function here to get information back in the terminal and verify it's working.
