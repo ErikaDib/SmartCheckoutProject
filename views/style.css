@@ -25,7 +25,10 @@ input[type="text"]
    
 }
 #col1{
+
+
 /*    border-radius: 30px;*/
+
     text-align: center;
     text-align: center;
     background-image: url(https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX11089546.jpg);
@@ -44,11 +47,14 @@ input[type="text"]
 }
 .layer{
     height: 100%;
+
+
 /*    border-radius: 30px;*/
     background: linear-gradient(
                      rgba(26,178,255, .8), 
                      rgba(51,51,204, .8));
    
+
 
 }
 
@@ -69,9 +75,11 @@ input[type="text"]
 .card-body{
     
 }
+
 .card img{
     height: 80px;
 }
+
 form{
     padding-top: 10%;
 }
@@ -112,6 +120,7 @@ form{
  width: 70%;
  float: left;
  height: 100%;
+
  background-image: url(images/groceries.jpg);
 /* border-radius: 30px;*/
 
@@ -123,6 +132,7 @@ form{
  float: right;
  background-color: rgba(51,51,204, .8);
  height: 100%;
+
 /* border-radius: 30px;*/
  }
 
@@ -135,6 +145,7 @@ form{
 
  /* unordered list CSS*/   
 #unordered-listdiv{
+
     height:100%;
 }
 
@@ -142,6 +153,9 @@ form{
 {
     max-height: 70%;
     overflow-y: scroll;
+    height:610px;
+
+
 }
 
 /* inner lsit css*/
@@ -181,6 +195,7 @@ form{
 /*  background: #5a92ed;*/
   background-image: url(https://oneclassblog.com/wp-content/uploads/2017/10/food.jpg);
 }
+
 
 .slide:nth-child(2) {
 /*  background: #037E8C;*/

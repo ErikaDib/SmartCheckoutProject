@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Miriam+Libre" rel="stylesheet">
@@ -20,7 +20,7 @@
              <div class="layer2">
                 <form action="/add" method = "post">
                      <h3>Budget:</h3>
-                     <!-xs- Budget Input -->
+                     <!-- <!-xs- Budget Input -->
                      <input name = "budget" id="budget-input "type="text">
                      <!-- Items Input -->
                      <h3>Items:</h3>
@@ -31,17 +31,17 @@
                 <div class="ScrollStyle" id="unordered-listdiv">
                 <ul>
                 <% for (var i = 0; i < listOfItems.length; i++){%>
-                                    
-                    
-                    <li>  <%= listOfItems[i] %></li>            
-                       
-                
+
+
+                    <li><a href="/delete/<%= i %>"> X </a><%= listOfItems[i] %></li>
+
+
                 <%} %>
                 </ul>
-                </div>   
+                </div>
 
-           
-            <button class="btn btn-dark" id="checkout-button">Checkout</button>
+
+            <button class="btn btn-dark" id="checkout-button"><a href="/checkout">Checkout</a></button>
         </div>
     </div>
 
@@ -50,11 +50,11 @@
     <div class="layer">
       <h1>Smart Checkout</h1>
 
-        
-    <div id="inner-lists" class="container"> 
+
+    <div id="inner-lists" class="container">
     <div id="inner-listrow"class="row">
     <div class="col listcol">
-        
+
 
         
      <div class="card" >
@@ -73,9 +73,33 @@
 </div>   
         
         
-        
 
-        
+
+
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Walmart_logo.svg/2000px-Walmart_logo.svg.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+
+        <ul class="list-group list-group-flush">
+          <!-- walmart Div For loop to populate -->
+          <% for (var i = 0; i < Walmart.length; i++){%>
+
+
+            <li class="list-group-item" ><%= Walmart[i] %> <span> $<%= WalmartPrices[i]%> </span></li>
+
+
+          <%} %>
+        </ul>
+        <div class="card-body">
+          <p>price <span> <%= WalmartTotal %></span></p>
+        </div>
+      </div>
+
+
+
     </div>
     <div class="col listcol">
      <div class="card" >
@@ -83,19 +107,26 @@
   <div class="card-body">
     <h5 class="card-title">Online Prices:</h5>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">milk</li>
-    <li class="list-group-item">Dcookies</li>
-    <li class="list-group-item">rice</li>
-  </ul>
+
+    <ul class="list-group list-group-flush">
+          <!-- walmart Div For loop to populate -->
+           <% for (var i = 0; i < Amazon.length; i++){%>
+
+
+            <li class="list-group-item" ><%= Amazon[i] %><span> $ <%= AmazonPrices[i]%> </span></li>
+
+
+            <%} %>
+        </ul>
+
   <div class="card-body">
-    <p>price</p>
+    <p>price <span> <%= AmazonTotal %>  </span></p>
   </div>
-</div>      
-    </div>
-        
-        
-        
+  </div>
+  </div>
+
+
+
     <div class="col listcol">
 
         <div class="card">
@@ -103,19 +134,29 @@
   <div class="card-body">
     <h5 class="card-title">Wholesale Prices:</h5>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">milk</li>
-    <li class="list-group-item">Dcookies</li>
-    <li class="list-group-item">rice</li>
-  </ul>
+      <ul class="list-group list-group-flush">
+          <!-- walmart Div For loop to populate -->
+           <% for (var i = 0; i < Cosco.length; i++){%>
+
+
+            <li class="list-group-item" ><%= Cosco[i] %><span> $ <%= CoscoPrices[i]%> </li>
+                            
+
+            <%} %>
+        </ul>
+
+
+
+
+
   <div class="card-body">
-    <p>price</p>
+    <p>price <span> <%= CoscoTotal %></span></p>
     </div>
-    </div>      
+    </div>
    </div>
   </div>
 
-                    
+
 </div>
          </div>
 </div>
@@ -125,13 +166,18 @@
 
 <!--     extras   -->
 
-      
+
 <div id="col2side">
-    
+
+  <!-- THE WEATHER SECTION  GIMMe the fucking WEATHER!! -->  
  <div class="wheater">
-    
-    
-    </div>
+    <%= weatherData["location"]  %>
+    <%= weatherData["temp"]  %>
+    <%= weatherData["feels"]  %>
+    <%= weatherData["weekDay"]  %>
+    <img src="<%= weatherData["image"] %>"/>
+</div>
+
 <!--carousel-->
 <div id="slideshow">
   <div class="slide-wrapper">
@@ -144,10 +190,8 @@
 
 
 
-
-    
  </div>
-</div>       
+</div>
 </div>
 
 
@@ -155,11 +199,10 @@
 <div id="footer">
  <p>Copyright © 2018 Erika-Juan-Eduardo </p>
 </div>
- 
+
 
 
 
 <!--<script src="../app.js"></script>-->
 </body>
 </html>
-
