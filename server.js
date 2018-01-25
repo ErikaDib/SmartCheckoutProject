@@ -23,6 +23,11 @@ var weatherData = "";
 
 
 
+app.use(express.static('views'));
+
+
+
+
 // itemsArray added from the user form
 var itemsArray = [];
 
