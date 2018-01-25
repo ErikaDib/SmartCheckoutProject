@@ -16,6 +16,8 @@ var itemsArray = [];
 
 
 
+
+
 app.use(express.static('views'));
 
 // To be able to implement the css file
