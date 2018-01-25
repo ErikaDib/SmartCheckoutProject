@@ -4,8 +4,11 @@ html, body {
  border: 0px;
  font-family: 'Miriam Libre', sans-serif;
 /* overflow: hidden;*/
- background-color:steelblue;
+/* background-image: url(images/groceries.jpg);*/
  }
+ul {
+  list-style-type: none;
+}
 
 #unordered-listdiv li{
     font-size: 1.5em;
@@ -31,18 +34,17 @@ input[type="text"]
 
     text-align: center;
     text-align: center;
-    background-image: url(https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX11089546.jpg);
+/*    background-image: url(images/groceries.jpg);*/
     position: relative;
-    
+   
 }
 
 .layer2{
     height: 100%;
 /*    border-radius: 30px;*/
     background: linear-gradient(
-                     rgba(51,51,204, .8), 
+                     rgba(204,153,255, .8), 
                      rgba(26,178,255, .8));
-    
 
 }
 .layer{
@@ -68,9 +70,14 @@ input[type="text"]
 #unordered-listdiv{
     text-align: left;
 }
+.card{
+    width: 17rem;
+   
+}
 
-.card-body{
-    
+
+.card img{
+    height: 80px;
 }
 
 form{
@@ -85,7 +92,6 @@ form{
  /* Layout CSS*/   
  #container {
  width: 100%;
- margin: 0 0 0 20px; 
  padding: 0;
  }
  #container h1 {
@@ -105,16 +111,19 @@ form{
 #container #col1 {
  width: 20%;
  float: left;
- background-color: red;
- height: 100%;
+/* background-color: red;*/
+ height: 100vh;
  }
+
+
+
 
  #col2outer #col2mid {
  width: 70%;
  float: left;
  height: 100%;
 
- background-image: url(images/groceries.jpg);
+/* background-image: url(images/groceries.jpg);*/
 /* border-radius: 30px;*/
 
  }
@@ -139,7 +148,15 @@ form{
  /* unordered list CSS*/   
 #unordered-listdiv{
 
-  height:610px;
+    height:100%;
+}
+
+.ScrollStyle
+{
+    max-height: 70%;
+    overflow-y: scroll;
+    height:610px;
+
 
 }
 
@@ -148,14 +165,37 @@ form{
    
 }
 .container{
-     height: 787px;
+     height: 100%;
 }
 
 /*wheater css*/
 
 .wheater{
-   height: 185px; 
-    
+   height: 20%;
+   padding: 5px;
+}
+#temper{
+    position: relative;
+    top: 5px;
+    margin-left: 5px;
+    font-weight: bold;
+    color: white;
+    font-size: 2.5vw;
+    width: 20%;
+    /* border: 3px solid black; */
+    float: left;
+}
+#weatherTitle{
+    font-weight: bold;
+    color: white;
+    font-size: 1vw;
+}
+#weatherImg{
+    position: relative;
+    left: 20px;
+    width: 50%;
+    float: left;
+    /* border: 1px solid black; */
 }
 /*slide show cc*/
 #slideshow {
@@ -217,21 +257,162 @@ form{
 /*footer*/
 #footer{
     text-align: center;
+   
 }
 
 /*media query*/
-@media only screen and (min-width: 320px) and (max-width: 479px){ }
+/* mobile*/
+@media only screen and (min-width: 320px) and (max-width: 479px){
+    body{
+        text-align: center;
+        margin-left: -2em;
+    }
+    #col2mid h1{
+        font-size: 3em;
+    }
+    #col2outer #col2side{
+        display:none;
+    }
+    #container #col1{
+        float:none;
+        height: 50%;
+        width: 100%;
+    }
+    #col2outer #col2mid {
+        width: 100%;
+    }
+    #unordered-listdiv{
+    height:100px;
+    }
+    #footer{
+        display:none;
+    }
+    .container{
+     height: 100%;
+     padding-left: 70px;
+     }
+    .ScrollStyle
+    {
+    max-height: 150px;
+    overflow-y: scroll;
+    height:610px;
 
 
-    @media only screen and (min-width: 480px) and (max-width: 767px){ }
+    }
+
+ 
+}
+
+
+@media only screen and (min-width: 480px) and (max-width: 767px){
+    #col2mid h1{
+        font-size: 4.5em;
+    }
+    #container #col1{
+        float:none;
+        height: 20%;
+        width: 100%;
+    }
+    #unordered-listdiv{
+    height:100px;
+    }
+   #col2outer #col2side{
+      width: 20%;
+      height: 100%;
+    }
+    #col2outer #col2mid {
+        height: 100%;
+        width: 80%;
+        
+    }
+    #col2mid{
+       height: 100%;  
+    }
+    .container{
+        height: 100%;
+        padding-left: 20%;
+    }
+    
+    #footer{
+        display: none;
+    }
+    .ScrollStyle
+    {
+    max-height: 150px;
+    overflow-y: scroll;
+    height:610px;
+
+
+   }
+
+    
+
+
+}
 
 
 
-    @media only screen and (min-width: 768px) and (max-width: 991px){ }
+@media only screen and (min-width: 768px) and (max-width: 990px){
+    body{
+        text-align: center;
+        margin-left: -2em;
+    }
+    #col2mid h1{
+        font-size: 4em;
+    }
+    #footer{
+        display: none;
+    }
+    #col2outer #col2mid {
+        height: 100%;
+        width: 70%;   
+    }
+    #container #col1{
+        float:none;
+        height: 20%;
+        width: 100%;
+    }
+    #unordered-listdiv{
+    height:100px;
+    }
+    #col2outer #col2side{
+      width: 30%;
+      
+    }
+    .container{
+        height: 100%;
+        padding-left: 20%;
+    }
+    .ScrollStyle
+    {
+    max-height: 150px;
+    overflow-y: scroll;
+    height:610px;
+
+
+    }
 
 
 
-@media only screen and (min-width: 992px) and (max-width: 1999px){  }
+}
+@media only screen and (min-width: 991px) and (max-width: 1294px){ 
+    body{
+        background-color: red;
+    }
+  .layer{
+    height: 100%;
+   
+    }
+    .container{
+      width:40%;
+    }
+    .card{
+        margin: 5%;
+        width: 20rem;
+    }
+
+
+}
 
 
 
