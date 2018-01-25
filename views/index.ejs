@@ -69,17 +69,15 @@
           <% for (var i = 0; i < Walmart.length; i++){%>
 
 
-            <li class="list-group-item" ><%= Walmart[i] %></li>
+            <li class="list-group-item" ><%= Walmart[i] %> <span> $<%= WalmartPrices[i]%> </span></li>
 
 
           <%} %>
         </ul>
         <div class="card-body">
-          <p>price</p>
+          <p>price <span> <%= WalmartTotal %></span></p>
         </div>
       </div>
-
-
 
 
 
@@ -97,14 +95,14 @@
            <% for (var i = 0; i < Amazon.length; i++){%>
 
 
-            <li class="list-group-item" ><%= Amazon[i] %></li>
+            <li class="list-group-item" ><%= Amazon[i] %><span> $ <%= AmazonPrices[i]%> </span></li>
 
 
             <%} %>
         </ul>
 
   <div class="card-body">
-    <p>price</p>
+    <p>price <span> <%= AmazonTotal %>  </span></p>
   </div>
   </div>
   </div>
@@ -124,8 +122,8 @@
            <% for (var i = 0; i < Cosco.length; i++){%>
 
 
-            <li class="list-group-item" ><%= Cosco[i] %></li>
-
+            <li class="list-group-item" ><%= Cosco[i] %><span> $ <%= CoscoPrices[i]%> </li>
+                            
 
             <%} %>
         </ul>
@@ -135,7 +133,7 @@
 
 
   <div class="card-body">
-    <p>price</p>
+    <p>price <span> <%= CoscoTotal %></span></p>
     </div>
     </div>
    </div>
