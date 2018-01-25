@@ -113,6 +113,8 @@ form{
  float: left;
 /* background-color: red;*/
  height: 100vh;
+ vertical-align: top;
+
  }
 
 
@@ -134,6 +136,7 @@ form{
  float: right;
  background-color: rgba(51,51,204, .8);
  height: 100%;
+ vertical-align: top;
 
 /* border-radius: 30px;*/
  }
@@ -212,7 +215,7 @@ form{
 
 .slide {
   float: left;
-  height: 640px;
+  height: 600px;
   width: 700px;
 }
 
@@ -293,7 +296,7 @@ form{
      }
     .ScrollStyle
     {
-    max-height: 150px;
+    max-height: 100px;
     overflow-y: scroll;
     height:610px;
 
@@ -338,7 +341,7 @@ form{
     }
     .ScrollStyle
     {
-    max-height: 150px;
+    max-height: 100px;
     overflow-y: scroll;
     height:610px;
 
@@ -385,7 +388,7 @@ form{
     }
     .ScrollStyle
     {
-    max-height: 150px;
+    max-height: 100px;
     overflow-y: scroll;
     height:610px;
 
