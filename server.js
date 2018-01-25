@@ -55,6 +55,7 @@ app.get('/checkout',urlencodedParser,function(req, res)
          if(infoarray.hasOwnProperty(itemsArray[i]))
          {
             console.log("item found " + itemsArray[i]);
+            
          }
          else
          {
