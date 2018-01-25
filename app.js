@@ -16,6 +16,5 @@ app.use(express.static(__dirname + '/views'));
 app.get('/', function(req, res) {
   // do something here.
     res.render("index.ejs");
-    
-});
 
+});
