@@ -4,7 +4,7 @@ html, body {
  border: 0px;
  font-family: 'Miriam Libre', sans-serif;
 /* overflow: hidden;*/
- background-color:steelblue;
+/* background-image: url(images/groceries.jpg);*/
  }
 
 #unordered-listdiv li{
@@ -31,18 +31,17 @@ input[type="text"]
 
     text-align: center;
     text-align: center;
-    background-image: url(https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX11089546.jpg);
+/*    background-image: url(images/groceries.jpg);*/
     position: relative;
-    
+   
 }
 
 .layer2{
     height: 100%;
 /*    border-radius: 30px;*/
     background: linear-gradient(
-                     rgba(51,51,204, .8), 
+                     rgba(204,153,255, .8), 
                      rgba(26,178,255, .8));
-    
 
 }
 .layer{
@@ -72,9 +71,7 @@ input[type="text"]
     width: 17rem;
    
 }
-.card-body{
-    
-}
+
 
 .card img{
     height: 80px;
@@ -92,7 +89,6 @@ form{
  /* Layout CSS*/   
  #container {
  width: 100%;
- margin: 0 0 0 20px; 
  padding: 0;
  }
  #container h1 {
@@ -113,15 +109,18 @@ form{
  width: 20%;
  float: left;
 /* background-color: red;*/
- height: 100%;
+ height: 100vh;
  }
+
+
+
 
  #col2outer #col2mid {
  width: 70%;
  float: left;
  height: 100%;
 
- background-image: url(images/groceries.jpg);
+/* background-image: url(images/groceries.jpg);*/
 /* border-radius: 30px;*/
 
  }
@@ -163,7 +162,7 @@ form{
    
 }
 .container{
-     height: 100vh;
+     height: 100%;
 }
 
 /*wheater css*/
@@ -232,6 +231,7 @@ form{
 /*footer*/
 #footer{
     text-align: center;
+   
 }
 
 /*media query*/
@@ -265,6 +265,15 @@ form{
      height: 100%;
      padding-left: 70px;
      }
+    .ScrollStyle
+    {
+    max-height: 150px;
+    overflow-y: scroll;
+    height:610px;
+
+
+    }
+
  
 }
 
@@ -283,6 +292,7 @@ form{
     }
    #col2outer #col2side{
       width: 20%;
+      height: 100%;
     }
     #col2outer #col2mid {
         height: 100%;
@@ -300,6 +310,15 @@ form{
     #footer{
         display: none;
     }
+    .ScrollStyle
+    {
+    max-height: 150px;
+    overflow-y: scroll;
+    height:610px;
+
+
+   }
+
     
 
 
@@ -307,7 +326,7 @@ form{
 
 
 
-@media only screen and (min-width: 768px) and (max-width: 991px){
+@media only screen and (min-width: 768px) and (max-width: 990px){
     body{
         text-align: center;
         margin-left: -2em;
@@ -338,28 +357,38 @@ form{
         height: 100%;
         padding-left: 20%;
     }
+    .ScrollStyle
+    {
+    max-height: 150px;
+    overflow-y: scroll;
+    height:610px;
+
+
+    }
+
 
 
 }
+@media only screen and (min-width: 991px) and (max-width: 1294px){ 
+    body{
+        background-color: red;
+    }
+  .layer{
+    height: 100%;
+   
+    }
+    .container{
+      width:40%;
+    }
+    .card{
+        margin: 5%;
+        width: 20rem;
+    }
 
+    
+    
+    
 
-@media only screen and (min-width: 992px) and (max-width: 1999px){ 
-    #col2outer{
-        
-    }
-    
-    
-    #col2outer #col2mid {
-    
-         
-    }
-    #col2outer #col2side{
-    
-      
-    }
-    #container #col1{
-     
-    }
 }
 
 
