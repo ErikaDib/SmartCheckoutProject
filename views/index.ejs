@@ -57,24 +57,30 @@
         
 
         
-     <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Walmart_logo.svg/2000px-Walmart_logo.svg.png" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">milk</li>
-    <li class="list-group-item">Dcookies</li>
-    <li class="list-group-item">rice</li>
-  </ul>
-  <div class="card-body">
-<p>price</p>
-  </div>
-</div>   
-        
-        
-        
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Walmart_logo.svg/2000px-Walmart_logo.svg.png" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <!-- for the walmart for loop -->
+        <ul class="list-group list-group-flush">
+        <% for (var i = 0; i < WalmartData.length; i++){%>
+                                    
+                    
+        <li class = "list-group-item"><%= WalmartData[i] %></li>            
+                       
+                
+        <%} %>
+        </ul>
+
+        <!-- total price In walmart -->
+        <div class="card-body">
+            <p>price</p>
+        </div>  
+         
+    </div>   
+          
 
         
     </div>

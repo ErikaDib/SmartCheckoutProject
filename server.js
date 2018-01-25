@@ -12,12 +12,19 @@ console.log(infoarray);
 
 // itemsArray 
 var itemsArray = [];
+
+//walmart array so it populate the the div of the stores
+ var walmartArray = [];
+
+
+
+
 app.use(express.static('views'));
 // To be able to implement the css file
 app.use(express.static(__dirname + '/views'));
 
 app.get("/", function(req, res){
-    res.render("index.ejs",{listOfItems:itemsArray});
+    res.render("index.ejs",{listOfItems:itemsArray,WalmartData:walmartArray});
 });
 // adding to the list
 app.post('/add',urlencodedParser,function(req, res)
@@ -53,6 +60,7 @@ app.get('/checkout',urlencodedParser,function(req, res)
     {
          if(infoarray.hasOwnProperty(itemsArray[i]))
          {
+            walmartArray.push(itemsArray[i]);
             console.log("item found " + itemsArray[i]);
          }
          else
@@ -61,15 +69,6 @@ app.get('/checkout',urlencodedParser,function(req, res)
          }  
 
     }
-
-
-
-
-
-
-
-
-
 
 
     console.log("checkout route triggered");
