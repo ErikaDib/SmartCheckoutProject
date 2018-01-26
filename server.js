@@ -19,15 +19,7 @@ var coscoArray = JSON.parse(coscoInfo);
 
 var weatherData = "";
 
-
-
-
-
 app.use(express.static('views'));
-
-
-
-
 
 // to get value from the input
 var moneySaveArray = [];
