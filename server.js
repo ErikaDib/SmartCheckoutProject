@@ -57,6 +57,7 @@ app.use(express.static(__dirname + '/views'));
 app.get("/", function(req, res){
     res.render("index.ejs",
     {listOfItems:itemsArray,
+        budgetInput:moneySaveArray[0],
         Walmart:walmatItems,WalmartPrices:walmartItemsValue,WalmartTotal:walmartTotalPrice,sWalmart:moneySaveWalmart,
         Amazon:amazonItems,AmazonPrices:amazontItemsValue,AmazonTotal:amazonTotalPrice,sAmazon:moneySaveAmazon,
         Cosco:coscoItems,CoscoPrices:coscoItemsValue,CoscoTotal:coscoTotalPrice,sCosco:moneySaveCosco});
@@ -118,6 +119,7 @@ app.get('/checkout',urlencodedParser,function(req, res)
             walmatItems.push(itemsArray[i]);
             walmartItemsValue.push(infoarray[itemsArray[i]]);
             walmartTotalPrice = walmartTotalPrice + parseFloat(infoarray[itemsArray[i]]); 
+            walmartTotalPrice = roundUp(walmartTotalPrice,1);//nearest number 5 digits precision 
 
          }       
 
@@ -129,6 +131,7 @@ app.get('/checkout',urlencodedParser,function(req, res)
     }
     // money saved on the walmart store
     moneySaveWalmart = parseFloat(moneySaveArray[0])  - walmartTotalPrice;
+    moneySaveWalmart = roundUp(moneySaveWalmart,1);
     console.log("money saved from walmart " + moneySaveWalmart);
 
     
@@ -147,7 +150,9 @@ app.get('/checkout',urlencodedParser,function(req, res)
             console.log("item found " + itemsArray[i]);
             amazonItems.push(itemsArray[i]);
             amazontItemsValue.push(amazonArray[itemsArray[i]]);
-            amazonTotalPrice = amazonTotalPrice + parseFloat(amazonArray[itemsArray[i]]);            
+            amazonTotalPrice = amazonTotalPrice + parseFloat(amazonArray[itemsArray[i]]);
+            //fixing to the nearest number 
+            amazonTotalPrice = roundUp(amazonTotalPrice,1);
          }
          else
          {
@@ -156,6 +161,7 @@ app.get('/checkout',urlencodedParser,function(req, res)
 
     }
     moneySaveAmazon = parseFloat(moneySaveArray[0])  - amazonTotalPrice;
+    moneySaveAmazon = roundUp(moneySaveAmazon,1);
     console.log("money saved from amazon" + moneySaveAmazon);
 
     // cosco
@@ -167,6 +173,7 @@ app.get('/checkout',urlencodedParser,function(req, res)
             coscoItems.push(itemsArray[i]);
             coscoItemsValue.push(coscoArray[itemsArray[i]]);
             coscoTotalPrice = coscoTotalPrice + parseFloat(coscoArray[itemsArray[i]]);
+            coscoTotalPrice = roundUp(coscoTotalPrice,1);
 
 
             // console.log(coscoArray[itemsArray[i]]);         
@@ -177,12 +184,19 @@ app.get('/checkout',urlencodedParser,function(req, res)
          }
     }
     moneySaveCosco = parseFloat(moneySaveArray[0])  - coscoTotalPrice;
+    moneySaveCosco = roundUp(moneySaveCosco,1);
     console.log("money saved from Cosco" + moneySaveCosco);
     itemsArray = [];//reseting the list for the user
     res.redirect('/');       
   
 
 });
+
+
+function roundUp(num, precision) {
+  precision = Math.pow(10, precision)
+  return Math.ceil(num * precision) / precision
+}
 
 
 //open a listening port and create a callback function here to get information back in the terminal and verify it's working.
