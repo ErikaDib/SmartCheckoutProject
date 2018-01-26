@@ -2,8 +2,7 @@ html, body {
  margin: 0px;
  padding: 0px;
  border: 0px;
-/* font-family: 'Miriam Libre', sans-serif;*/
- font-family: 'Cabin Sketch', cursive;
+ font-family: 'Miriam Libre', sans-serif;
 /* overflow: hidden;*/
 /* background-image: url(images/groceries.jpg);*/
  }
@@ -14,14 +13,6 @@ ul {
 #unordered-listdiv li{
     font-size: 1.5em;
 }
-/*bulb image*/
-#bulb{
-    width: 10%;
-    height: 10%;
-
-}
-
-
 /*list items css */
 input[type="text"]
 {
@@ -34,9 +25,8 @@ input[type="text"]
     border-left-color: transparent;
     border-right-color: transparent;
     opacity: 0.7;
-   
-}
 
+}
 #col1{
 
 
@@ -46,23 +36,15 @@ input[type="text"]
     text-align: center;
 /*    background-image: url(images/groceries.jpg);*/
     position: relative;
-   
+
 }
 
 .layer2{
     height: 100%;
-     background: linear-gradient(
-                     rgba(255,255,255, .2), 
-                     rgba(255,255,255, .2));
-   
-    
-    
-    border-radius: 30px;
-/*
+/*    border-radius: 30px;*/
     background: linear-gradient(
-                     rgba(204,153,255, .8), 
+                     rgba(204,153,255, .8),
                      rgba(26,178,255, .8));
-*/
 
 }
 .layer{
@@ -71,24 +53,26 @@ input[type="text"]
 
 /*    border-radius: 30px;*/
     background: linear-gradient(
-                     rgba(26,178,255, .8), 
+                     rgba(26,178,255, .8),
                      rgba(51,51,204, .8));
-   
+
 
 
 }
 
+
+
+
+
 #budget-input{
-  
+
 }
 #unordered-listdiv{
     text-align: left;
 }
 .card{
-    margin-top:20%;
     width: 17rem;
-    margin-left: 10%;
-   
+
 }
 
 
@@ -105,7 +89,7 @@ form{
     margin: 4%;
 }
 
- /* Layout CSS*/   
+ /* Layout CSS*/
  #container {
  width: 100%;
  padding: 0;
@@ -115,7 +99,7 @@ form{
  padding: 0;
  font-size:7vw;
  }
- 
+
  #container #col2outer {
  width: 100%;
  height: 100%;
@@ -129,8 +113,6 @@ form{
  float: left;
 /* background-color: red;*/
  height: 100vh;
- vertical-align: top;
-
  }
 
 
@@ -142,14 +124,9 @@ form{
  height: 100%;
 
 /* background-image: url(images/groceries.jpg);*/
-
+/* border-radius: 30px;*/
 
  }
-
-
-#col2mid h1{
-    text-align: center;
-}
 
 
  #col2outer #col2side {
@@ -157,7 +134,6 @@ form{
  float: right;
  background-color: rgba(51,51,204, .8);
  height: 100%;
- vertical-align: top;
 
 /* border-radius: 30px;*/
  }
@@ -169,7 +145,7 @@ form{
  border-top: #c00 solid 3px;
  }
 
- /* unordered list CSS*/   
+ /* unordered list CSS*/
 #unordered-listdiv{
 
     height:100%;
@@ -178,16 +154,15 @@ form{
 .ScrollStyle
 {
     max-height: 70%;
-    overflow-y:scroll;
+    overflow-y: scroll;
     height:610px;
-   
 
 
 }
 
 /* inner lsit css*/
 #inner-listrow{
-   
+
 }
 .container{
      height: 100%;
@@ -237,7 +212,7 @@ form{
 
 .slide {
   float: left;
-  height: 720px;
+  height: 640px;
   width: 700px;
 }
 
@@ -250,14 +225,14 @@ form{
 .slide:nth-child(2) {
 /*  background: #037E8C;*/
   background-image: url(https://www.usnews.com/dims4/USNEWS/307b953/2147483647/thumbnail/970x647/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2Fe6%2F4d%2F24ae69104af8a3325e4ec4323d2b%2F150526-variousfoods-stock.jpg);
-    
-  
+
+
 }
 
 .slide:nth-child(3) {
 /*  background: #36BF66;*/
   background-image: url( https://az616578.vo.msecnd.net/files/2016/08/09/6360630123516822951123741797_Angel+Food-+High+Res-6766.jpg);
-    
+
 
 }
 
@@ -282,7 +257,7 @@ form{
 /*footer*/
 #footer{
     text-align: center;
-   
+
 }
 
 /*media query*/
@@ -318,14 +293,14 @@ form{
      }
     .ScrollStyle
     {
-    max-height: 100px;
+    max-height: 150px;
     overflow-y: scroll;
     height:610px;
 
 
     }
 
- 
+
 }
 
 
@@ -348,29 +323,29 @@ form{
     #col2outer #col2mid {
         height: 100%;
         width: 80%;
-        
+
     }
     #col2mid{
-       height: 100%;  
+       height: 100%;
     }
     .container{
         height: 100%;
         padding-left: 20%;
     }
-    
+
     #footer{
         display: none;
     }
     .ScrollStyle
     {
-    max-height: 100px;
+    max-height: 150px;
     overflow-y: scroll;
     height:610px;
 
 
    }
 
-    
+
 
 
 }
@@ -390,7 +365,7 @@ form{
     }
     #col2outer #col2mid {
         height: 100%;
-        width: 70%;   
+        width: 70%;
     }
     #container #col1{
         float:none;
@@ -402,7 +377,7 @@ form{
     }
     #col2outer #col2side{
       width: 30%;
-      
+
     }
     .container{
         height: 100%;
@@ -410,7 +385,7 @@ form{
     }
     .ScrollStyle
     {
-    max-height: 100px;
+    max-height: 150px;
     overflow-y: scroll;
     height:610px;
 
@@ -420,13 +395,13 @@ form{
 
 
 }
-@media only screen and (min-width: 991px) and (max-width: 1294px){ 
+@media only screen and (min-width: 991px) and (max-width: 1294px){
     body{
         background-color: red;
     }
   .layer{
     height: 100%;
-   
+
     }
     .container{
       width:40%;
@@ -438,13 +413,3 @@ form{
 
 
 }
-
-
-
-
-
-
-
-
-
-
