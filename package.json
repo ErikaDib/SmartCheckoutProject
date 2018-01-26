@@ -1,0 +1,26 @@
+{
+  "name": "smartcheckoutproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErikaDib/SmartCheckoutProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ErikaDib/SmartCheckoutProject/issues"
+  },
+  "homepage": "https://github.com/ErikaDib/SmartCheckoutProject#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "weather-js": "^2.0.0"
+  }
+}
