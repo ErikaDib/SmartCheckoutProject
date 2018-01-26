@@ -14,7 +14,7 @@ var amazonInfo = fs.readFileSync('DummyData/amazon.json'); //return not a javaS 
 var amazonArray = JSON.parse(amazonInfo);
 
 var coscoInfo = fs.readFileSync('DummyData/cosco.json'); //return not a javaS object
-var coscoArray = JSON.parse(amazonInfo);
+var coscoArray = JSON.parse(coscoInfo);
 
 
 var weatherData = "";

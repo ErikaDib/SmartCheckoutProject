@@ -2,7 +2,8 @@ html, body {
  margin: 0px;
  padding: 0px;
  border: 0px;
- font-family: 'Miriam Libre', sans-serif;
+/* font-family: 'Miriam Libre', sans-serif;*/
+ font-family: 'Cabin Sketch', cursive;
 /* overflow: hidden;*/
 /* background-image: url(images/groceries.jpg);*/
  }
@@ -13,6 +14,13 @@ ul {
 #unordered-listdiv li{
     font-size: 1.5em;
 }
+/*bulb image*/
+#bulb{
+    width: 10%;
+    height: 10%;
+
+}
+
 /*list items css */
 input[type="text"]
 {
@@ -27,6 +35,7 @@ input[type="text"]
     opacity: 0.7;
    
 }
+
 #col1{
 
 
@@ -41,10 +50,18 @@ input[type="text"]
 
 .layer2{
     height: 100%;
-/*    border-radius: 30px;*/
+     background: linear-gradient(
+                     rgba(255,255,255, .2), 
+                     rgba(255,255,255, .2));
+   
+    
+    
+    border-radius: 30px;
+/*
     background: linear-gradient(
                      rgba(204,153,255, .8), 
                      rgba(26,178,255, .8));
+*/
 
 }
 .layer{
@@ -60,10 +77,6 @@ input[type="text"]
 
 }
 
-
-
-
-
 #budget-input{
   
 }
@@ -71,7 +84,9 @@ input[type="text"]
     text-align: left;
 }
 .card{
+    margin-top:20%;
     width: 17rem;
+    margin-left: 10%;
    
 }
 
@@ -113,7 +128,10 @@ form{
  float: left;
 /* background-color: red;*/
  height: 100vh;
+<<<<<<< HEAD
  vertical-align: top;
+=======
+>>>>>>> erika
 
  }
 
@@ -126,9 +144,14 @@ form{
  height: 100%;
 
 /* background-image: url(images/groceries.jpg);*/
-/* border-radius: 30px;*/
+
 
  }
+
+
+#col2mid h1{
+    text-align: center;
+}
 
 
  #col2outer #col2side {
@@ -157,8 +180,9 @@ form{
 .ScrollStyle
 {
     max-height: 70%;
-    overflow-y: scroll;
+    overflow-y:scroll;
     height:610px;
+   
 
 
 }
@@ -215,7 +239,11 @@ form{
 
 .slide {
   float: left;
+<<<<<<< HEAD
   height: 600px;
+=======
+  height: 720px;
+>>>>>>> erika
   width: 700px;
 }
 
