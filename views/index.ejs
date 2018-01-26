@@ -3,15 +3,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Miriam+Libre" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
 
 
     <title>Smart Checkout</title>
 </head>
-<body>
+<body class="layer">
     <div id="container">
 
 
@@ -20,117 +21,136 @@
              <div class="layer2">
                 <form action="/add" method = "post">
                      <h3>Budget:</h3>
-                     <!-- <!-xs- Budget Input --> 
+         
                      <input name = "budget" id="budget-input "type="text" placeholder = "<%= budgetInput %>">
+
                      <!-- Items Input -->
                      <h3>Items:</h3>
                      <input name = "item" id="items-input "type="text">
                      <button class="btn btn-dark" id="add-button">Add</button>
+                     <button class="btn btn-dark" id="checkout-button"><a href="/checkout">Checkout</a></button>
                 </form>
 
-                <div id="unordered-listdiv">
+                <div class="ScrollStyle" id="unordered-listdiv">
                 <ul>
                 <% for (var i = 0; i < listOfItems.length; i++){%>
-                                    
-                    
-                    <li><a href="/delete/<%= i %>"> X </a><%= listOfItems[i] %></li> 
-                        
-                
+
+
+                    <li><a href="/delete/<%= i %>"> X </a><%= listOfItems[i] %></li>
+
+
                 <%} %>
                 </ul>
-                </div>   
+                </div>
 
-           
-            <button class="btn btn-dark" id="checkout-button"><a href="/checkout">Checkout</a></button>
+
+
         </div>
     </div>
 
     <!--     mid-->
     <div id="col2mid">
-    <div class="layer">
-      <h1>Smart Checkout</h1>
-
-        
-    <div id="inner-lists" class="container"> 
+    <div>
+      <h1>Smart<img id="bulb" src="images/bulb.png">Checkout</h1>
+    <div id="inner-lists" class="container">
     <div id="inner-listrow"class="row">
-    <div class="col listcol">
-        
 
-        
-      <div class="card" style="width: 18rem;">
+
+
+
+<!--
+     <div class="card" >
+  <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Walmart_logo.svg/2000px-Walmart_logo.svg.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Retail Prices:</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">milk</li>
+    <li class="list-group-item">Dcookies</li>
+    <li class="list-group-item">rice</li>
+  </ul>
+  <div class="card-body">
+<p>price</p>
+  </div>
+</div>
+-->
+
+
+
+<div id="card-center" class="col listcol">
+      <div class="card">
         <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Walmart_logo.svg/2000px-Walmart_logo.svg.png" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h5 class="card-title">Retail Prices:</h5>
         </div>
 
         <ul class="list-group list-group-flush">
           <!-- walmart Div For loop to populate -->
           <% for (var i = 0; i < Walmart.length; i++){%>
-                                 
-                    
-            <li class="list-group-item" ><%= Walmart[i] %> <span> $<%= WalmartPrices[i]%> </span></li>            
-                            
-                
-          <%} %>          
+
+
+            <li class="list-group-item" ><%= Walmart[i] %> <span> $<%= WalmartPrices[i]%> </span></li>
+
+
+          <%} %>
         </ul>
         <div class="card-body">
-          <p>price <span> <%= WalmartTotal %></span></p>
-          <p>Save <span> <%= sWalmart %></span></p>
+          <p>price <span> $<%= WalmartTotal %></span></p>
+          <p>Save <span> $<%= sWalmart %></span></p>
         </div>
 
-      </div>   
-        
-        
-        
 
-        
+
+      </div>
+
+
+
+
+
     </div>
-    <div class="col listcol">
-     <div class="card" style="width: 18rem;">
+    <div id="card-center" class="col listcol">
+     <div class="card" >
   <img class="card-img-top" src="http://freepngimages.com/wp-content/uploads/2016/10/amazon-logo.png" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h5 class="card-title">Online Prices:</h5>
   </div>
 
     <ul class="list-group list-group-flush">
           <!-- walmart Div For loop to populate -->
            <% for (var i = 0; i < Amazon.length; i++){%>
-                                 
-                  
-            <li class="list-group-item" ><%= Amazon[i] %><span> $ <%= AmazonPrices[i]%> </span></li>            
-                            
-                
-            <%} %>          
+
+
+            <li class="list-group-item" ><%= Amazon[i] %><span> $ <%= AmazonPrices[i]%> </span></li>
+
+
+            <%} %>
         </ul>
 
   <div class="card-body">
-    <p>price <span> <%= AmazonTotal %>  </span></p>
-    <p>Save<span> <%= sAmazon %>  </span></p>
+    <p>price <span> $<%= AmazonTotal %>  </span></p>
+    <p>Save<span> $<%= sAmazon %>  </span></p>
   </div>
-  </div>      
   </div>
-        
-        
-        
-    <div class="col listcol">
+  </div>
 
-        <div class="card" style="width: 18rem;">
+
+
+    <div id="card-center" class="col listcol">
+
+        <div class="card">
   <img class="card-img-top" src="http://www.pngpix.com/wp-content/uploads/2016/07/PNGPIX-COM-Costco-Wholesale-Logo-PNG-Transparent.png" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h5 class="card-title">Wholesale Prices:</h5>
   </div>
       <ul class="list-group list-group-flush">
           <!-- walmart Div For loop to populate -->
            <% for (var i = 0; i < Cosco.length; i++){%>
-                                 
-                  
-            <li class="list-group-item" ><%= Cosco[i] %><span> $ <%= CoscoPrices[i]%> </li>            
-                            
-                
-            <%} %>          
+
+
+            <li class="list-group-item" ><%= Cosco[i] %><span> $ <%= CoscoPrices[i]%> </li>
+
+
+            <%} %>
         </ul>
 
 
@@ -138,15 +158,17 @@
 
 
   <div class="card-body">
-    <p>price <span> <%= CoscoTotal %></span></p>
-    <p>Save<span> <%= sCosco %></span></p>
+    <p>price <span>$ <%= CoscoTotal %></span></p>
+    <p>Save<span> $<%= sCosco %></span></p>
     </div>
 
-    </div>      
+
+    </div>
+
    </div>
   </div>
 
-                    
+
 </div>
          </div>
 </div>
@@ -156,9 +178,20 @@
 
 <!--     extras   -->
 
-      
+
 <div id="col2side">
- 
+
+  <!-- THE WEATHER SECTION  GIMMe the fucking WEATHER!! -->
+    <div class="wheater">
+        <h2 id="weatherTitle"><%= weatherData["weekDay"]  %>'s Weather Forecast</h2>
+        <div id="weatherBox">
+            <div id="temper"><%= weatherData["temp"]  %>F</div>
+            <img id="weatherImg" src="<%= weatherData["image"] %>"/>
+        </div>
+        <h2 id="location"><%= weatherData["location"]  %></h2>
+        <h2 id="feels">Feels Like: <%= weatherData["feels"]  %></h2>
+    </div>
+
 <!--carousel-->
 <div id="slideshow">
   <div class="slide-wrapper">
@@ -168,21 +201,11 @@
     <div class="slide"><h2 class="slide-number"></h2></div>
   </div>
 </div>
-<div class="wheater">
-    
-    
-    </div>
 
 
-    <div class="card ">
-  <div class="card-block">
-    <h3 class="card-title">You will save</h3>
-    <p class="card-text">Amount</p> 
-  </div>
-</div>
-    
+
  </div>
-</div>       
+</div>
 </div>
 
 
@@ -190,11 +213,10 @@
 <div id="footer">
  <p>Copyright © 2018 Erika-Juan-Eduardo </p>
 </div>
- 
+
 
 
 
 <!--<script src="../app.js"></script>-->
 </body>
 </html>
-

@@ -1,23 +1,25 @@
 var express = require("express");
+var weather = require('weather-js');
 var app = express();
 app.set("view engine", "ejs");
 var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
-
 //To read files
 var fs = require('fs');
-
-// walmart items 
+// walmart items
 var storeInfo = fs.readFileSync('DummyData/walmart.json'); //return not a javaS object
 var infoarray = JSON.parse(storeInfo);
-
 // amazon items
 var amazonInfo = fs.readFileSync('DummyData/amazon.json'); //return not a javaS object
 var amazonArray = JSON.parse(amazonInfo);
 
-
 var coscoInfo = fs.readFileSync('DummyData/cosco.json'); //return not a javaS object
 var coscoArray = JSON.parse(coscoInfo);
+
+
+var weatherData = "";
+
+app.use(express.static('views'));
 
 // to get value from the input
 var moneySaveArray = [];
@@ -36,35 +38,32 @@ var itemsArray = [];
 var walmatItems = [];
 var walmartItemsValue = [];
 var walmartTotalPrice = 0;
-
-
 //amazon Array of Item when to populate the amazon div
+
 var amazonItems = [];
 var amazontItemsValue = [];
 var amazonTotalPrice = 0;
-
 
 //cosco Array of Item when to populate the cosco div
 var coscoItems = [];
 var coscoItemsValue = [];
 var coscoTotalPrice = 0;
 
-
 app.use(express.static('views'));
 // To be able to implement the css file
 app.use(express.static(__dirname + '/views'));
-
 app.get("/", function(req, res){
     res.render("index.ejs",
     {listOfItems:itemsArray,
         budgetInput:moneySaveArray[0],
         Walmart:walmatItems,WalmartPrices:walmartItemsValue,WalmartTotal:walmartTotalPrice,sWalmart:moneySaveWalmart,
         Amazon:amazonItems,AmazonPrices:amazontItemsValue,AmazonTotal:amazonTotalPrice,sAmazon:moneySaveAmazon,
-        Cosco:coscoItems,CoscoPrices:coscoItemsValue,CoscoTotal:coscoTotalPrice,sCosco:moneySaveCosco});
+        Cosco:coscoItems,CoscoPrices:coscoItemsValue,CoscoTotal:coscoTotalPrice,sCosco:moneySaveCosco, weatherData:weatherData});
+
 });
 // adding to the list
 app.post('/add',urlencodedParser,function(req, res)
-{   
+{
     // accessing data using the name attribute
     if(req.body.item != '') {
         itemsArray.push(req.body.item);
@@ -89,25 +88,21 @@ app.post('/add',urlencodedParser,function(req, res)
      console.log("moneySaveArray is  " + moneySaveArray);
 
     res.redirect('/');
-
 });
-
 // adding to the list
 app.get('/delete/:id',urlencodedParser,function(req, res)
-{      
+{
     if (req.params.id != '') {
         console.log("id for the element " +req.params.id );
         itemsArray.splice(req.params.id, 1);
         console.log("it gets to here");
-
     }
-    res.redirect('/');       
-
+    res.redirect('/');
 });
-
-
 app.get('/checkout',urlencodedParser,function(req, res)
+
 {     
+
 
     // walmart
     console.log("checkOut triggered");
@@ -118,16 +113,16 @@ app.get('/checkout',urlencodedParser,function(req, res)
             console.log("item found " + itemsArray[i]);
             walmatItems.push(itemsArray[i]);
             walmartItemsValue.push(infoarray[itemsArray[i]]);
+
             walmartTotalPrice = walmartTotalPrice + parseFloat(infoarray[itemsArray[i]]); 
             walmartTotalPrice = roundUp(walmartTotalPrice,1);//nearest number 5 digits precision 
 
-         }       
+         }  
 
          else
          {
             console.log("object not found.Get foodstand");
          }
-
     }
     // money saved on the walmart store
     moneySaveWalmart = parseFloat(moneySaveArray[0])  - walmartTotalPrice;
@@ -148,17 +143,18 @@ app.get('/checkout',urlencodedParser,function(req, res)
          if(amazonArray.hasOwnProperty(itemsArray[i]))
          {
             console.log("item found " + itemsArray[i]);
-            amazonItems.push(itemsArray[i]);
+            amazonItems.push(itemsArray[i]);//add the
             amazontItemsValue.push(amazonArray[itemsArray[i]]);
             amazonTotalPrice = amazonTotalPrice + parseFloat(amazonArray[itemsArray[i]]);
+
             //fixing to the nearest number 
             amazonTotalPrice = roundUp(amazonTotalPrice,1);
+
          }
          else
          {
             console.log("object not found.Get foodstand");
          }
-
     }
     moneySaveAmazon = parseFloat(moneySaveArray[0])  - amazonTotalPrice;
     moneySaveAmazon = roundUp(moneySaveAmazon,1);
@@ -173,16 +169,16 @@ app.get('/checkout',urlencodedParser,function(req, res)
             coscoItems.push(itemsArray[i]);
             coscoItemsValue.push(coscoArray[itemsArray[i]]);
             coscoTotalPrice = coscoTotalPrice + parseFloat(coscoArray[itemsArray[i]]);
+
             coscoTotalPrice = roundUp(coscoTotalPrice,1);
 
-
-            // console.log(coscoArray[itemsArray[i]]);         
          }
          else
          {
             console.log("object not found.Get foodstand");
          }
     }
+
     moneySaveCosco = parseFloat(moneySaveArray[0])  - coscoTotalPrice;
     moneySaveCosco = roundUp(moneySaveCosco,1);
     console.log("money saved from Cosco" + moneySaveCosco);
@@ -190,7 +186,27 @@ app.get('/checkout',urlencodedParser,function(req, res)
     res.redirect('/');       
   
 
+
+
+
+    res.redirect('/');
+
+
 });
+
+    // Juan's Part (WEATHER SECTION) ++++++++
+    weather.find({search: 'Bronx, NY', degreeType: 'F'}, function(err, result) {
+      if(err) console.log(err);
+
+      weatherData = {
+          location:result[0]["location"]["name"],
+          temp: result[0]["current"]["temperature"],
+          feels: result[0]["current"]["feelslike"],
+          image: result[0]["current"]["imageUrl"],
+          weekDay: result[0]["current"]["day"]
+      };
+
+      });
 
 
 function roundUp(num, precision) {
@@ -198,10 +214,8 @@ function roundUp(num, precision) {
   return Math.ceil(num * precision) / precision
 }
 
-
 //open a listening port and create a callback function here to get information back in the terminal and verify it's working.
 var server = app.listen(3000, listening);
-
 function listening(){
     console.log("listening")
 }
